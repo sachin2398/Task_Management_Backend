@@ -97,7 +97,7 @@ exports.getMe = async (req, res) => {
 
 };
 exports.logout = async (req, res) => {
-  res.clearCookie("token");
+  res.clearCookie("token", cookieOptions);
 
   return res.status(200).json({
     success: true,
