@@ -18,7 +18,11 @@ const startServer = async () => {
 
         const io = new Server(server, {
             cors: {
-                origin: "http://localhost:4200",
+               origin: [
+     
+      "https://task-management-frontend-ashy-zeta.vercel.app",
+      "http://localhost:4200",
+    ],
                 credentials: true,
             },
         });
@@ -54,4 +58,4 @@ const startServer = async () => {
 
 };
 
-startServer();
+startServer();

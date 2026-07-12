@@ -1,19 +1,26 @@
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
+const dns = require('dns')
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const authRoutes = require("./routes/auth.routes");
 const taskRoutes = require("./routes/task.routes");
 const userRoutes = require("./routes/user.routes");
 const errorHandler = require("./middleware/error.middleware");
+dns.setServers(['1.1.1.1','8.8.8.8'])
 const app = express();
+
 
 
 
 app.use(
   cors({
-    origin: "http://localhost:4200",
+  origin: [
+      
+      "https://task-management-frontend-ashy-zeta.vercel.app",
+      "http://localhost:4200",
+    ],
     credentials: true,
   })
 );
